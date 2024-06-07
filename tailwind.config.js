@@ -8,6 +8,7 @@ export default {
         secondary: "var(--secondary)",
         title: "var(--title)",
         clockColor: "var(--clockColor)",
+        select: "var(--select)",
       },
     },
   },

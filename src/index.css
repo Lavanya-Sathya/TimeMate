@@ -1,17 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root {
-  --grape: rgba(114, 35, 204);
-}
 
-.dark {
+.blue {
   --primary: #1e293b;
   --secondary: white;
   --clockColor: #0c192e;
   --title: #eee;
+  --select: #1c273a;
+}
+.dark {
+  --primary: #495057;
+  --secondary: white;
+  --clockColor: #6c757d;
+  --title: #eee;
+  --select: #1c273a;
 }
 .light {
   --primary: aliceblue;
   --secondary: rgb(87, 85, 85);
+  --clockColor: rgb(201, 225, 247);
+  --title: #0c192e;
+  --select: #1c273a;
+}
+
+.yellow {
+  --primary: #fca311;
+  --secondary: #0c192e;
+  --clockColor: #f3a425;
+  --title: #1e293b;
+  --select: #1c273a;
+}
+.red {
+  --primary: #bc4749;
+  --secondary: rgb(236, 230, 230);
+  --clockColor: #943b3d;
+  --title: #f6f7f8;
+  --select: #1c273a;
+}
+.green {
+  --primary: #588157;
+  --secondary: rgb(235, 229, 229);
+  --clockColor: #3a5a40;
+  --title: #fbfbfc;
+  --select: #1c273a;
 }

@@ -4,10 +4,13 @@ import Home from "./pages/Home";
 import Pomodoro from "./pages/Pomodoro";
 import StopWatch from "./pages/StopWatch";
 import Setting from "./pages/Setting";
+import { useContext } from "react";
+import { StateContext } from "./context/StateProvider";
 
 function App() {
+  const { theme } = useContext(StateContext);
   return (
-    <div className="dark  h-screen w-full bg-primary text-secondary  ">
+    <div className={`${theme} h-screen w-full bg-primary text-secondary`}>
       <div className="min-w-72">
         <BrowserRouter>
           <Header />
