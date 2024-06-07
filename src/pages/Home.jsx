@@ -1,8 +1,10 @@
+// Rendering the time and date
 import React, { useEffect, useState } from "react";
 
 const Home = () => {
   const date = new Date();
-  const monthsName = [
+  const dayValues = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  const monthsValues = [
     "Jan",
     "Feb",
     "Mar",
@@ -20,10 +22,12 @@ const Home = () => {
   const [curHour, setCurHour] = useState(date.getHours());
   const [curMin, setCurMin] = useState(date.getMinutes());
   const [curSec, setCurSec] = useState(date.getSeconds());
-  let day = date.getDate();
-  let month = monthsName[date.getMonth()];
+  let dateVal = date.getDate();
+  let month = monthsValues[date.getMonth()];
   let year = date.getFullYear();
+  let day = dayValues[date.getDay()];
 
+  //  update the time for every second
   useEffect(() => {
     const interval = setInterval(() => {
       const date = new Date();
@@ -38,15 +42,20 @@ const Home = () => {
     }, 1000);
     return () => clearInterval(interval);
   }, [curHour, curMin, curSec]);
+
+  // to add zero if time is less than 10
+  const padZero = (time) => {
+    return time < 10 ? "0" + time : time;
+  };
+
   return (
-    <div>
-      <h1 className="text-red">
-        {curHour < 10 ? "0" + curHour : curHour} :{" "}
-        {curMin < 10 ? "0" + curMin : curMin} :{" "}
-        {curSec < 10 ? "0" + curSec : curSec} {isAMPM}
+    <div className="mt-5 text-center">
+      <h1 className="text-3xl pb-2  ">
+        {padZero(curHour)} : {padZero(curMin)} : {padZero(curSec)}{" "}
+        <span className="text-2xl">{isAMPM}</span>
       </h1>
       <h3>
-        {day} - {month} - {year}
+        {day} , {dateVal} - {month} - {year}
       </h3>
     </div>
   );

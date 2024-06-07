@@ -8,6 +8,8 @@
 .dark {
   --primary: #1e293b;
   --secondary: white;
+  --clockColor: #0c192e;
+  --title: #eee;
 }
 .light {
   --primary: aliceblue;
