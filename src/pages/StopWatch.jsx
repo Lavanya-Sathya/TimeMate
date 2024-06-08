@@ -33,13 +33,14 @@ const StopWatch = () => {
     return () => clearInterval(timer);
   }, [isTimer]);
 
+  // reset the timer
   const handleReset = () => {
     setIsTimer(false);
     setTime({ hours: 0, minutes: 0, seconds: 0 });
   };
   return (
     <div className="flex flex-col justify-center items-center ">
-      <h2 className="font-bold text-lg">Stop Watch</h2>
+      <h2 className="font-bold text-2xl text-bright">Stop Watch</h2>
       <div className="my-8">
         <div className="bg-clockColor w-56 h-56 rounded-full shadow-xl flex  justify-center items-center">
           <h3 className="font-bold text-3xl text-title">{`${padZero(

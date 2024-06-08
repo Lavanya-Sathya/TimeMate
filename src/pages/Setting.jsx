@@ -9,7 +9,7 @@ const Setting = () => {
   };
   return (
     <div className="flex flex-col justify-center items-center ">
-      <h2 className="font-bold text-xl">Setting</h2>
+      <h2 className="font-bold text-2xl text-bright">Setting</h2>
       <div className="mt-6 flex gap-5 items-center">
         <h4>Select Theme</h4>
         <select

@@ -21,7 +21,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex justify-center items-center flex-col">
-        <div className=" px-4 py-6 text-center">
+        <div className=" p-3 text-center">
           <h1 className="text-4xl font-bold pb-2 text-title">TimeMate</h1>
           <small className="text-center text-base">
             Be productive the right way.

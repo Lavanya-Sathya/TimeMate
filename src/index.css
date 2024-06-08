@@ -8,6 +8,9 @@
   --clockColor: #0c192e;
   --title: #eee;
   --select: #1c273a;
+  --bright: rgb(180, 40, 40);
+  --innerCircle: #070f1b;
+  --footer: rgb(139, 137, 137);
 }
 .dark {
   --primary: #495057;
@@ -15,6 +18,9 @@
   --clockColor: #6c757d;
   --title: #eee;
   --select: #1c273a;
+  --bright: #84b1df;
+  --innerCircle: #adb5bd;
+  --footer: rgb(139, 137, 137);
 }
 .light {
   --primary: aliceblue;
@@ -22,6 +28,9 @@
   --clockColor: rgb(201, 225, 247);
   --title: #0c192e;
   --select: #1c273a;
+  --bright: #84b1df;
+  --innerCircle: rgb(202, 220, 235);
+  --footer: rgb(139, 137, 137);
 }
 
 .yellow {
@@ -30,6 +39,9 @@
   --clockColor: #f3a425;
   --title: #1e293b;
   --select: #1c273a;
+  --bright: #ece38c;
+  --innerCircle: #d38a14;
+  --footer: rgb(139, 137, 137);
 }
 .red {
   --primary: #bc4749;
@@ -37,6 +49,9 @@
   --clockColor: #943b3d;
   --title: #f6f7f8;
   --select: #1c273a;
+  --bright: #df9a9b;
+  --innerCircle: #9e5657;
+  --footer: rgb(139, 137, 137);
 }
 .green {
   --primary: #588157;
@@ -44,4 +59,7 @@
   --clockColor: #3a5a40;
   --title: #fbfbfc;
   --select: #1c273a;
+  --bright: #a3b18a;
+  --innerCircle: #395a3f;
+  --footer: rgb(139, 137, 137);
 }

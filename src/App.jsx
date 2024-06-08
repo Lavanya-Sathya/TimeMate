@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Pomodoro from "./pages/Pomodoro";
 import StopWatch from "./pages/StopWatch";
 import Setting from "./pages/Setting";
+import Footer from "./components/Footer";
 import { useContext } from "react";
 import { StateContext } from "./context/StateProvider";
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/stopwatch" element={<StopWatch />} />
             <Route path="/setting" element={<Setting />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </div>
     </div>
