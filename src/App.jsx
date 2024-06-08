@@ -7,7 +7,6 @@ import Setting from "./pages/Setting";
 import Footer from "./components/Footer";
 import { useContext } from "react";
 import { StateContext } from "./context/StateProvider";
-import Clock from "./components/Clock";
 
 function App() {
   const { theme } = useContext(StateContext);
