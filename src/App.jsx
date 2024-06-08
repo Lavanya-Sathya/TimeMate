@@ -11,7 +11,9 @@ import { StateContext } from "./context/StateProvider";
 function App() {
   const { theme } = useContext(StateContext);
   return (
-    <div className={`${theme} min-h-screen w-full bg-primary text-secondary`}>
+    <div
+      className={`${theme} min-h-screen h-auto w-full bg-primary text-secondary`}
+    >
       <div className="min-w-72">
         <BrowserRouter>
           <Header />

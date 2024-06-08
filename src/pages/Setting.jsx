@@ -17,6 +17,7 @@ const Setting = () => {
   // to track whether the time is changed or not
   const [isUpdated, setIsUpdated] = useState(false);
   const [updateMessage, setUpdateMessage] = useState("");
+
   // to collect the form time
   const [formTime, setFormTime] = useState({
     work: workTime / 60,
@@ -54,6 +55,7 @@ const Setting = () => {
       setUpdateMessage("No Changes to Update");
     }
   };
+
   // theme will be applied
   const handleThemeChange = (e) => {
     setTheme(e.target.value);
@@ -81,63 +83,68 @@ const Setting = () => {
         </select>
       </div>
       {/* Pomodoro Setting */}
-      <div className="mt-6 mb-4 text-center ">
+      <div className="mt-6 mb-4 text-center">
         <h2 className="font-bold text-lg text-bright mb-1">Pomodoro Setting</h2>
-        <span className="mb-2">Time in mins</span>
-        <div className="grid place-content-between gap-5">
-          <div className="grid grid-flow-col place-content-between gap-5">
-            <label htmlFor="work">Work Time</label>
-            <input
-              type="number"
-              min="1"
-              max="60"
-              id="work"
-              name="work"
-              value={formTime.work}
-              onChange={handleFormChange}
-              className="text-select  py-2 text-center rounded-lg focus:outline-none "
-            />
+        {/* time setting */}
+        <div>
+          <span>Time in mins</span>
+          <div className="grid place-content-between mt-3 gap-5">
+            <div className="flex justify-between items-center gap-5">
+              <label htmlFor="work">Work Time</label>
+              <input
+                type="number"
+                min="1"
+                max="60"
+                id="work"
+                name="work"
+                value={formTime.work}
+                onChange={handleFormChange}
+                className="text-select  py-2 text-center rounded-lg focus:outline-none "
+              />
+            </div>
+            <div className="flex justify-between items-center gap-5">
+              <label htmlFor="work">ShortBreak Time</label>
+              <input
+                type="number"
+                min="1"
+                max="60"
+                id="short"
+                name="short"
+                value={formTime.short}
+                onChange={handleFormChange}
+                className="text-select  py-2 text-center rounded-lg focus:outline-none "
+              />
+            </div>
+            <div className="flex justify-between items-center gap-5">
+              <label htmlFor="work">LongBreak Time</label>
+              <input
+                type="number"
+                min="1"
+                max="60"
+                id="long"
+                name="long"
+                value={formTime.long}
+                onChange={handleFormChange}
+                className="text-select  py-2 text-center rounded-lg focus:outline-none "
+              />
+            </div>
           </div>
-          <div className="grid grid-flow-col place-content-between gap-5">
-            <label htmlFor="work">ShortBreak Time</label>
-            <input
-              type="number"
-              min="1"
-              max="60"
-              id="short"
-              name="short"
-              value={formTime.short}
-              onChange={handleFormChange}
-              className="text-select  py-2 text-center rounded-lg focus:outline-none "
-            />
-          </div>
-          <div className="grid grid-flow-col place-content-between gap-5">
-            <label htmlFor="work">LongBreak Time</label>
-            <input
-              type="number"
-              min="1"
-              max="60"
-              id="long"
-              name="long"
-              value={formTime.long}
-              onChange={handleFormChange}
-              className="text-select  py-2 text-center rounded-lg focus:outline-none "
-            />
+          <button
+            className="border-2 px-4 py-2 rounded-lg mt-6 hover:scale-95"
+            onClick={ChangeTime}
+          >
+            Change Time
+          </button>
+          <div
+            className={`${
+              isUpdated ? "visible" : "hidden"
+            } font-bold text-base text-bright mb-3 `}
+          >
+            {updateMessage}{" "}
           </div>
         </div>
-        <button
-          className="border-2 px-4 py-2 rounded-lg mt-6 hover:scale-95"
-          onClick={ChangeTime}
-        >
-          Change Time
-        </button>
-        <div
-          className={`${
-            isUpdated ? "visible" : "hidden"
-          } font-bold text-base text-bright mb-3 `}
-        >
-          {updateMessage}{" "}
-        </div>
+        {/* Notification Setting */}
+        <div></div>
       </div>
     </div>
   );
