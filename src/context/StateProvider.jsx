@@ -24,6 +24,9 @@ const StateProvider = ({ children }) => {
   const [time, setTime] = useState(0);
   const [initTime, setInitTime] = useState(0);
 
+  // to track whether the timer is running are not
+  const [isTimerRunning, setisTimerRunning] = useState(false);
+
   // to check which is the active tag and set time time based on active tag
   useEffect(() => {
     switch (activeTag) {
@@ -63,6 +66,8 @@ const StateProvider = ({ children }) => {
         setShortBreakTime,
         longBreakTime,
         setLongBreakTime,
+        isTimerRunning,
+        setisTimerRunning,
         padZero,
       }}
     >

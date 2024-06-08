@@ -41,18 +41,18 @@ const Setting = () => {
   // change time to user updated value
   const ChangeTime = () => {
     if (
-      formTime.work !== workTime / 60 ||
-      formTime.short !== shortBreakTime / 60 ||
-      formTime.long !== longBreakTime / 60
+      formTime.work != workTime / 60 ||
+      formTime.short != shortBreakTime / 60 ||
+      formTime.long != longBreakTime / 60
     ) {
-      setIsUpdated(true);
       setUpdateMessage("Time Updated Successfully");
+      setIsUpdated(true);
       setWorkTime(formTime.work * 60);
       setShortBreakTime(formTime.short * 60);
       setLongBreakTime(formTime.long * 60);
     } else {
-      setIsUpdated(true);
       setUpdateMessage("No Changes to Update");
+      setIsUpdated(true);
     }
   };
 

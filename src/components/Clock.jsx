@@ -3,8 +3,14 @@ import { FaPause, FaPlay, FaUndo } from "react-icons/fa";
 import { StateContext } from "../context/StateProvider";
 
 const Clock = () => {
-  const { time, setTime, initTime, padZero } = useContext(StateContext);
-  const [isTimerRunning, setisTimerRunning] = useState(false);
+  const {
+    time,
+    setTime,
+    initTime,
+    padZero,
+    isTimerRunning,
+    setisTimerRunning,
+  } = useContext(StateContext);
 
   // keep track of progress
   const [progress, setProgress] = useState(30);
@@ -61,6 +67,7 @@ const Clock = () => {
           className="cursor-pointer  hover:scale-x-110"
           onClick={() => {
             setTime(initTime);
+            setisTimerRunning(false);
           }}
         />
       </div>
