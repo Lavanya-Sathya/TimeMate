@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { FaPause, FaPlay, FaUndo } from "react-icons/fa";
+import { StateContext } from "../context/StateProvider";
 
 const StopWatch = () => {
+  const { padZero } = useContext(StateContext);
   const [time, setTime] = useState({ hours: 0, minutes: 0, seconds: 0 });
   const [isTimer, setIsTimer] = useState(false);
-
-  // to add zero if time is less than 10
-  const padZero = (time) => {
-    return time < 10 ? "0" + time : time;
-  };
 
   useEffect(() => {
     let timer;

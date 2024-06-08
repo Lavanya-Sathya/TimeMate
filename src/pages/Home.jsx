@@ -1,7 +1,9 @@
 // Rendering the time and date
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { StateContext } from "../context/StateProvider";
 
 const Home = () => {
+  const { padZero } = useContext(StateContext);
   const date = new Date();
   const dayValues = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
   const monthsValues = [
@@ -18,7 +20,7 @@ const Home = () => {
     "Nov",
     "Dec",
   ];
-  const [isAMPM, setIsAMPM] = useState("AM");
+  const [isAMPM, setIsAMPM] = useState("");
   const [curHour, setCurHour] = useState(date.getHours());
   const [curMin, setCurMin] = useState(date.getMinutes());
   const [curSec, setCurSec] = useState(date.getSeconds());
@@ -28,25 +30,23 @@ const Home = () => {
   let day = dayValues[date.getDay()];
 
   //  update the time for every second
+
   useEffect(() => {
     const interval = setInterval(() => {
       const date = new Date();
-      if (curHour > 12) {
-        setCurHour(curHour - 12);
+      const hour = date.getHours();
+      if (hour >= 12) {
         setIsAMPM("PM");
+        setCurHour(hour === 12 ? 12 : hour - 12);
       } else {
         setIsAMPM("AM");
+        setCurHour(hour === 0 ? 12 : hour);
       }
       setCurMin(date.getMinutes());
       setCurSec(date.getSeconds());
     }, 1000);
     return () => clearInterval(interval);
   }, [curHour, curMin, curSec]);
-
-  // to add zero if time is less than 10
-  const padZero = (time) => {
-    return time < 10 ? "0" + time : time;
-  };
 
   return (
     <div className="mt-5 text-center">

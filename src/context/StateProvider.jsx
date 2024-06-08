@@ -5,8 +5,12 @@ const StateProvider = ({ children }) => {
   const color = ["Blue", "Dark", "Light", "Yellow", "Red", "Green"];
   const [theme, setTheme] = useState("blue");
 
-  // POMODORO Section's Context
+  // to pad zero for time
+  const padZero = (time) => {
+    return time < 10 ? "0" + time : time;
+  };
 
+  // POMODORO Section's Context
   // to keep track which tag is active
   const [activeTag, setActiveTag] = useState(0);
   const PomoTag = ["Work", "Short Break", "Long Break"];
@@ -40,10 +44,6 @@ const StateProvider = ({ children }) => {
     }
   }, [activeTag, workTime, shortBreakTime, longBreakTime]);
 
-  // to pad zero for time
-  const padZero = (time) => {
-    return time < 10 ? "0" + time : time;
-  };
   return (
     <StateContext.Provider
       value={{
