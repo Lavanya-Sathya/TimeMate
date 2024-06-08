@@ -5,6 +5,8 @@ const StateProvider = ({ children }) => {
   const color = ["Blue", "Dark", "Light", "Yellow", "Red", "Green"];
   const [theme, setTheme] = useState("blue");
 
+  // localstorge
+
   // to pad zero for time
   const padZero = (time) => {
     return time < 10 ? "0" + time : time;

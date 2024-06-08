@@ -1,55 +1,59 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import { FaPause, FaPlay, FaUndo } from "react-icons/fa";
 import { StateContext } from "../context/StateProvider";
 
 const StopWatch = () => {
   const { padZero } = useContext(StateContext);
-  const [time, setTime] = useState({ hours: 0, minutes: 0, seconds: 0 });
+  const [elapsedTime, setElapsedTime] = useState(0);
   const [isTimer, setIsTimer] = useState(false);
+  const intervalRef = useRef(null);
+  const startTimeRef = useRef(0);
 
   useEffect(() => {
-    let timer;
     // for every second stop watch update will be called
     if (isTimer) {
-      timer = setInterval(() => {
-        setTime((prevState) => {
-          let { hours, minutes, seconds } = prevState;
-          seconds++;
-          if (seconds === 60) {
-            seconds = 0;
-            minutes++;
-            if (minutes === 60) {
-              minutes = 0;
-              hours++;
-            }
-          }
-          return { hours, minutes, seconds };
-        });
-      }, 1000);
+      intervalRef.current = setInterval(() => {
+        setElapsedTime(Date.now() - startTimeRef.current);
+      }, 10);
     }
-    return () => clearInterval(timer);
+    return () => clearInterval(intervalRef.current);
   }, [isTimer]);
+
+  // start the timer
+  const start = () => {
+    setIsTimer(true);
+    startTimeRef.current = Date.now() - elapsedTime;
+  };
 
   // reset the timer
   const handleReset = () => {
     setIsTimer(false);
-    setTime({ hours: 0, minutes: 0, seconds: 0 });
+    setElapsedTime(0);
+  };
+
+  // format the time
+  const formatTime = () => {
+    let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+    let minutes = Math.floor((elapsedTime / (1000 * 60)) % 60);
+    let seconds = Math.floor((elapsedTime / 1000) % 60);
+    let milliseconds = Math.floor((elapsedTime % 1000) / 10);
+    return `${padZero(minutes)} : ${padZero(seconds)} : ${padZero(
+      milliseconds
+    )}`;
   };
   return (
     <div className="flex flex-col justify-center items-center ">
       <h2 className="font-bold text-2xl text-bright">Stop Watch</h2>
       <div className="my-8">
         <div className="bg-clockColor w-56 h-56 rounded-full shadow-xl flex  justify-center items-center">
-          <h3 className="font-bold text-3xl text-title">{`${padZero(
-            time.hours
-          )} : ${padZero(time.minutes)} : ${padZero(time.seconds)}`}</h3>
+          <h3 className="font-bold text-3xl text-title">{formatTime()}</h3>
         </div>
       </div>
       <div className="flex  gap-6 ">
         {!isTimer ? (
           <FaPlay
             size={25}
-            onClick={() => setIsTimer(true)}
+            onClick={start}
             className="cursor-pointer hover:scale-x-110"
           />
         ) : (
