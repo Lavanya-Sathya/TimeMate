@@ -10,6 +10,7 @@ const Clock = () => {
     padZero,
     isTimerRunning,
     setisTimerRunning,
+    activeTag,
   } = useContext(StateContext);
 
   // keep track of progress
@@ -25,6 +26,11 @@ const Clock = () => {
         setTime(time - 1);
       }, 1000);
       return () => clearInterval(interval);
+    }
+    if (isTimerRunning && time === 0) {
+      activeTag === 0 ? alert("Take a break") : alert("Get to work");
+      setTime(initTime);
+      setisTimerRunning(false);
     }
   }, [isTimerRunning, time]);
 
