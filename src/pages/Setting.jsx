@@ -41,6 +41,17 @@ const Setting = () => {
   // change time to user updated value
   const ChangeTime = () => {
     if (
+      formTime.work < 1 ||
+      formTime.work > 60 ||
+      formTime.short < 1 ||
+      formTime.short > 60 ||
+      formTime.long < 1 ||
+      formTime.long > 60
+    ) {
+      console.log("form time: ", formTime.work);
+      setUpdateMessage("Time should be b/w 1 & 60");
+      setIsUpdated(true);
+    } else if (
       formTime.work != workTime / 60 ||
       formTime.short != shortBreakTime / 60 ||
       formTime.long != longBreakTime / 60
@@ -138,7 +149,7 @@ const Setting = () => {
           <div
             className={`${
               isUpdated ? "visible" : "hidden"
-            } font-bold text-base text-bright mb-3 `}
+            } font-bold text-base text-bright text-center mb-3 `}
           >
             {updateMessage}{" "}
           </div>
