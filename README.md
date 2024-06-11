@@ -2,6 +2,10 @@
 
 - TimeMate is a highly responsive React website designed to help you manage your time effectively. With TimeMate, you can keep track of the current time and date, utilize a Pomodoro timer, stopwatch, and customize various settings to tailor your experience to your needs.
 
+  ![screenshot](images/screenshot1.PNG)
+
+  ![sceenshot2](images/screenshot2.PNG)
+
 ## Features
 - Current Time Display: The home page displays the current time and date, keeping you informed at a glance.
 - Pomodoro Timer: Utilize the Pomodoro technique to boost productivity with customizable work intervals, short breaks, and long breaks.
